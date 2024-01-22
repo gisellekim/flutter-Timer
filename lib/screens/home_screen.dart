@@ -12,8 +12,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  static const twentyFiveMinutes = 1500;
-  int totalSeconds = twentyFiveMinutes;
+  static const tenSeconds = 10;
+  int totalSeconds = tenSeconds;
   bool isRunning = false;
   int totalRepeats = 0;
   late Timer timer;
@@ -23,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
       setState(() {
         totalRepeats += 1;
         isRunning = false;
-        totalSeconds = twentyFiveMinutes;
+        totalSeconds = tenSeconds;
       });
       timer.cancel();
     } else {
