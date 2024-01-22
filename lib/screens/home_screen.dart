@@ -12,14 +12,25 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int totalSeconds = 1500;
+  static const twentyFiveMinutes = 1500;
+  int totalSeconds = twentyFiveMinutes;
   bool isRunning = false;
+  int totalRepeats = 0;
   late Timer timer;
 
   void onTick(Timer timer) {
-    setState(() {
-      totalSeconds -= 1;
-    });
+    if (totalSeconds == 0) {
+      setState(() {
+        totalRepeats += 1;
+        isRunning = false;
+        totalSeconds = twentyFiveMinutes;
+      });
+      timer.cancel();
+    } else {
+      setState(() {
+        totalSeconds -= 1;
+      });
+    }
   }
 
   void onStartPressed() {
@@ -36,6 +47,11 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  String format(int seconds) {
+    var duration = Duration(seconds: seconds);
+    return duration.toString().split(".").first;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Container(
               alignment: Alignment.bottomCenter,
               child: Text(
-                '$totalSeconds',
+                format(totalSeconds),
                 style: TextStyle(
                   color: Theme.of(context).cardColor,
                   fontSize: 89,
@@ -78,11 +94,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     decoration: BoxDecoration(
                         color: Theme.of(context).cardColor,
                         borderRadius: BorderRadius.circular(50)),
-                    child: const Column(
+                    child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
-                          'Pomodoros',
+                        const Text(
+                          'Repeat',
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.w600,
@@ -90,8 +106,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                         Text(
-                          '0',
-                          style: TextStyle(
+                          '$totalRepeats',
+                          style: const TextStyle(
                             fontSize: 58,
                             fontWeight: FontWeight.w600,
                             color: Color(0xFF232B55),
