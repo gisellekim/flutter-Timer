@@ -1,10 +1,9 @@
 # Timer
 
 A new Flutter project.
-![image](https://github.com/gisellekim/flutter-WebComic/assets/69022097/47ce8ebf-b541-4069-ba6b-2733329ccf8f)
-![image](https://github.com/gisellekim/flutter-WebComic/assets/69022097/b3a3a172-4ee4-4eb8-8cdc-ef496121b98b)
-![image](https://github.com/gisellekim/flutter-WebComic/assets/69022097/4b2ba51f-bf76-489c-88de-11023a7a9b35)
-
+<img width="31%" alt="image" src="https://github.com/gisellekim/flutter-WebComic/assets/69022097/47ce8ebf-b541-4069-ba6b-2733329ccf8f">
+<img width="31%" alt="image" src="https://github.com/gisellekim/flutter-WebComic/assets/69022097/b3a3a172-4ee4-4eb8-8cdc-ef496121b98b">
+<img width="31%" alt="image" src="https://github.com/gisellekim/flutter-WebComic/assets/69022097/4b2ba51f-bf76-489c-88de-11023a7a9b35">
 
 ## Getting Started
 
